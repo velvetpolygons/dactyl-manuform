@@ -1,0 +1,14 @@
+services:
+  clojure:
+    container_name: clojure
+    image: clojure:lein
+    volumes:
+      - .:/app
+    working_dir: /app
+
+  openscad:
+    container_name: openscad
+    image: openscad/openscad:latest
+    volumes:
+      - ./:/app
+    working_dir: /app
