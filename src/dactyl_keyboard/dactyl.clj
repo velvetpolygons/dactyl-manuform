@@ -248,7 +248,7 @@
                :when (or (and (= column 0) (< row 3))
                          (and (.contains [1 2] column) (< row 4))
                          (.contains [3 4 5 6] column))]
-               (->> (sa-cap (if (and pinky-15u (= column lastcol) (not= row lastrow)) 1.5 1))
+               (->> (sa-cap (if (and pinky-15u (= column lastcol) (>= row first-15u-row) (<= row last-15u-row)) 1.5 1))
                     (key-place column row)))
                (list (key-place 0 0 (sa-cap 1))
                  (key-place 0 1 (sa-cap 1))
