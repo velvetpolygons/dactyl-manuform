@@ -1306,19 +1306,16 @@
          (translate (map + offset [(first position) (second position) (/ height 2)])))))
 
 ; Offsets for the screw inserts dependent on extra-row & pinky-15u
-(when (and pinky-15u extra-row)
-    (def screw-offset-tr [1 7 0])
-    (def screw-offset-br [7 14 0]))
-(when (and pinky-15u (false? extra-row))
-    (def screw-offset-tr [1 7 0])
-    (def screw-offset-br [6.5 15.5 0]))
-(when (and (false? pinky-15u) extra-row)
-    (def screw-offset-tr [-3.5 6.5 0])
-    (def screw-offset-br [-3.5 -6.5 0]))
-(when (and (false? pinky-15u) (false? extra-row))
-    (def screw-offset-tr [-4 6.5 0])
-    (def screw-offset-br [-6 13 0]))
-    
+(def screw-offset-tr
+  (if (and pinky-15u (= first-15u-row 0))
+    [2.25 7 0]
+    [-3.5 6.5 0]))
+(def screw-offset-br
+  (cond (and pinky-15u (= last-15u-row extra-cornerrow) extra-row) [2.25 -7 0]
+        (and pinky-15u (= last-15u-row extra-cornerrow)) [6.25 15.5 0]
+        extra-row [-3.5 -6.5 0]
+        :else [-6.25 12.5 0]))
+
 ; Offsets for the screw inserts dependent on thumb-style & inner-column
 (when (and (= thumb-style "cf") inner-column)
     (def screw-offset-bl [9 4 0])
