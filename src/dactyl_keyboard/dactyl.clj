@@ -1322,7 +1322,7 @@
     (def screw-offset-tm [9.5 -4.5 0])
     (def screw-offset-bm [13 -7 0]))
 (when (and (= thumb-style "cf") (false? inner-column))
-    (def screw-offset-bl [-3.5 2 0])
+    (def screw-offset-bl [-5.25 3.25 0])
     (def screw-offset-tm [9.5 -4.5 0])
     (def screw-offset-bm [13 -7 0]))
 (when (and (= thumb-style "mini") inner-column)
@@ -1345,8 +1345,8 @@
 ; Offset for the top left screw insert depending on rows
 (def screw-offset-tl
   (case nrows
-    4 [7 10.5 0]
-    5 [8 10.5 0]
+    4 [7.5 11.5 0]
+    5 [8.5 10.5 0]
     6 [9.5 8.5 0]))
 
 (defn screw-insert-all-shapes [bottom-radius top-radius height]
