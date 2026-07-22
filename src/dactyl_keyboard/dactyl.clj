@@ -1342,8 +1342,15 @@
     (def screw-offset-tm [9.5 -4.5 0])
     (def screw-offset-bm [8 -1 0]))
 
-         (defn screw-insert-all-shapes [bottom-radius top-radius height]
-  (union (screw-insert 0 0         bottom-radius top-radius height [8 10.5 0])
+; Offset for the top left screw insert depending on rows
+(def screw-offset-tl
+  (case nrows
+    4 [7 10.5 0]
+    5 [8 10.5 0]
+    6 [9.5 8.5 0]))
+
+(defn screw-insert-all-shapes [bottom-radius top-radius height]
+  (union (screw-insert 0 0         bottom-radius top-radius height screw-offset-tl)
          (screw-insert 0 lastrow   bottom-radius top-radius height screw-offset-bl)
          (screw-insert lastcol lastrow  bottom-radius top-radius height screw-offset-br)
          (screw-insert lastcol 0         bottom-radius top-radius height screw-offset-tr)
