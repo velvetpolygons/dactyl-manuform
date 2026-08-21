@@ -1280,12 +1280,15 @@
     5 0.15
     6 -5.07))
 
+; MCU holder height
+(def usb-holder-height 28.6) ; default 10.4
+
 ; Cutout for MCU holder
 (def usb-holder-ref (key-position 0 0 (map - (wall-locate2  0  -1) [0 (/ mount-height 2) 0])))
 (def usb-holder-position (map + [(+ 18.8 holder-offset) 18.7 1.3] [(first usb-holder-ref) (second usb-holder-ref) 1.8]))
-(def usb-holder-space  (translate (map + usb-holder-position [-1.5 (* -1 wall-thickness) 2.1]) (cube 28.666 30 10.4)))
-(def usb-holder-notch-l  (translate (map + usb-holder-position [-12 (+ 4.4 notch-offset) 2.1]) (cube 10 1.3 10.4)))
-(def usb-holder-notch-r  (translate (map + usb-holder-position [9 (+ (if inner-column 4.4 6.4) notch-offset) 2.1]) (cube 10 1.3 10.4)))
+(def usb-holder-space  (translate (map + usb-holder-position [-1.5 (* -1 wall-thickness) 2.1]) (cube 28.666 30 usb-holder-height)))
+(def usb-holder-notch-l  (translate (map + usb-holder-position [-12 (+ 4.4 notch-offset) 2.1]) (cube 10 1.3 usb-holder-height)))
+(def usb-holder-notch-r  (translate (map + usb-holder-position [9 (+ (if inner-column 4.4 6.4) notch-offset) 2.1]) (cube 10 1.3 usb-holder-height)))
 
 ; Screw insert definition & position
 (defn screw-insert-shape [bottom-radius top-radius height]
