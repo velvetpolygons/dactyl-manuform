@@ -23,7 +23,7 @@
 (def tenting-angle (/ π 12))           ; or, change this for more precise tenting control
 
 (def pinky-15u true)                   ; controls whether the outer column uses 1.5u keys
-(def first-15u-row 0)                  ; controls which should be the first row to have 1.5u keys on the outer column
+(def first-15u-row 1)                  ; controls which should be the first row to have 1.5u keys on the outer column
 (def last-15u-row 3)                   ; controls which should be the last row to have 1.5u keys on the outer column
 
 (def extra-row true)                   ; adds an extra bottom row to the outer column(s)
@@ -45,9 +45,9 @@
 
 (def thumb-offsets [6 -3 7])
 
-(def keyboard-z-offset 8)              ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
+(def keyboard-z-offset 9)              ; controls overall height; original=9 with centercol=3; use 16 for centercol=2
 
-(def extra-width 2.5)                  ; extra space between the base of keys; original= 2
+(def extra-width 3)                  ; extra space between the base of keys; original= 2
 (def extra-height 1.0)                 ; original= 0.5
 
 (def wall-z-offset -8)                 ; length of the first downward-sloping part of the wall (negative)
@@ -56,7 +56,7 @@
 
 ; If you use Cherry MX or Gateron switches, this can be turned on.
 ; If you use other switches such as Kailh, you should set this as false
-(def create-side-nubs? false)
+(def create-side-nubs? true)
 
 ;;;;;;;;;;;;;;;;;;;;;;;
 ;; General variables ;;
